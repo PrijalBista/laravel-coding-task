@@ -29,3 +29,6 @@ Route::group([
     Route::post('/logout', [App\Http\Controllers\Api\Customer\AuthController::class, 'logout']);
     Route::get('/user', [App\Http\Controllers\Api\Customer\AuthController::class, 'userProfile']);
 });
+
+
+Route::apiResource('company', 'App\Http\Controllers\Api\Customer\CompanyController');
