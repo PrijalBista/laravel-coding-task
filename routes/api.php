@@ -31,4 +31,4 @@ Route::group([
 });
 
 
-Route::apiResource('company', 'App\Http\Controllers\Api\Customer\CompanyController');
+Route::middleware('auth:api')->apiResource('company', 'App\Http\Controllers\Api\Customer\CompanyController');
