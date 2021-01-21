@@ -46,16 +46,16 @@ class AuthController extends Controller
 	    $validatedData = $request->validate([
 	        'name' => 'required|string|max:255',
 	        'email' => 'required|email|unique:users,email',
-	        'dob' => 'required',
-	        'country' => 'required|string|max:255',
-	        'profession' => 'required|string|max:255',
 	        'password' => 'required|string|confirmed|min:6',
-	        'role' => 'required|in:customer,admin',
+	        // 'dob' => 'required',
+	        // 'country' => 'required|string|max:255',
+	        // 'profession' => 'required|string|max:255',
+	        // 'role' => 'required|in:customer,admin',
 	    ]);
 
 	    $user = User::create(array_merge(
 	        $validatedData,
-	        ['password' => bcrypt($request->password)]
+	        ['password' => bcrypt($request->password), 'role' => 'admin']
 	    ));
 
 	    return response()->json([

@@ -32,3 +32,6 @@ Route::group([
 
 
 Route::middleware('auth:api')->apiResource('company', 'App\Http\Controllers\Api\Customer\CompanyController');
+Route::middleware('auth:api')->apiResource('customer', 'App\Http\Controllers\Api\Admin\CustomerController');
+
+Route::middleware('auth:api')->get('admin/dashboard', [App\Http\Controllers\Api\Admin\DashboardController::class, 'info']);
