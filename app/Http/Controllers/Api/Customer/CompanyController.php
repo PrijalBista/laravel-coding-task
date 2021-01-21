@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Company;
+use App\Http\Resources\CompanyResource;
 
 class CompanyController extends Controller
 {
@@ -15,7 +16,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return Company::all();
+        return CompanyResource::collection(Company::all());
     }
 
     /**
@@ -34,7 +35,7 @@ class CompanyController extends Controller
         ]);
 
         $company = Company::create($validatedData);
-        return response()->json($company, 201);
+        return response()->json(new CompanyResource($company), 201);
     }
 
     /**
@@ -45,7 +46,7 @@ class CompanyController extends Controller
      */
     public function show(Company  $company)
     {
-        return $company;
+        return new CompanyResource($company);
     }
 
 
@@ -66,7 +67,7 @@ class CompanyController extends Controller
         ]);
 
         $company->update($validatedData);
-        return response()->json($company, 200);
+        return response()->json(new CompanyResource($company), 200);
     }
 
     /**
