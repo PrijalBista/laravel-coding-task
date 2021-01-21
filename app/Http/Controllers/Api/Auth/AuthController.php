@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Customer;
+namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -49,8 +49,8 @@ class AuthController extends Controller
 	        'dob' => 'required',
 	        'country' => 'required|string|max:255',
 	        'profession' => 'required|string|max:255',
-	        // 'role' => 'required|in:employee,admin',
 	        'password' => 'required|string|confirmed|min:6',
+	        'role' => 'required|in:customer,admin',
 	    ]);
 
 	    $user = User::create(array_merge(

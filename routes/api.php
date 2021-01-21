@@ -23,11 +23,11 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 ], function ($router) {
-    Route::post('/register', [App\Http\Controllers\Api\Customer\AuthController::class, 'register']);
-    Route::post('/login', [App\Http\Controllers\Api\Customer\AuthController::class, 'login']);
-    Route::post('/refresh', [App\Http\Controllers\Api\Customer\AuthController::class, 'refresh']);
-    Route::post('/logout', [App\Http\Controllers\Api\Customer\AuthController::class, 'logout']);
-    Route::get('/user', [App\Http\Controllers\Api\Customer\AuthController::class, 'userProfile']);
+    Route::post('/register', [App\Http\Controllers\Api\Auth\AuthController::class, 'register']);
+    Route::post('/login', [App\Http\Controllers\Api\Auth\AuthController::class, 'login']);
+    Route::post('/refresh', [App\Http\Controllers\Api\Auth\AuthController::class, 'refresh']);
+    Route::post('/logout', [App\Http\Controllers\Api\Auth\AuthController::class, 'logout']);
+    Route::get('/user', [App\Http\Controllers\Api\Auth\AuthController::class, 'userProfile']);
 });
 
 
