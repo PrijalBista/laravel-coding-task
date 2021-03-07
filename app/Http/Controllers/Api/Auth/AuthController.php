@@ -47,11 +47,6 @@ class AuthController extends Controller
 	        'name' => 'required|string|max:255',
 	        'email' => 'required|email|unique:users,email',
 	        'password' => 'required|string|confirmed|min:6',
-
-	        // 'dob' => 'required',
-	        // 'country' => 'required|string|max:255',
-	        // 'profession' => 'required|string|max:255',
-	        // 'role' => 'required|in:customer,admin',
 	    ]);
 
 	    $user = User::create(array_merge(
