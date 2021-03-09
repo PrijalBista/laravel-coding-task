@@ -30,7 +30,6 @@ Route::group([
     Route::get('/user', [App\Http\Controllers\Api\Auth\AuthController::class, 'userProfile']);
 });
 
-
 Route::middleware('auth:api')->apiResource('company', 'App\Http\Controllers\Api\Customer\CompanyController');
 Route::middleware('auth:api')->apiResource('customer', 'App\Http\Controllers\Api\Admin\CustomerController');
 
